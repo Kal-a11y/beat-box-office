@@ -23,5 +23,29 @@ function getTrendingMovies(){
     })
 }
 
+//Uncompleted
+// function getMoviesByGenre(genre){
+    
+//     let amountOfMovies = 10;
+//     const path = '/search/random/';
+//     fetch(movieBaseUrl + path + movieKeyParam + '&genre=' + genre + '&service=netflix&type=movie&limit=' + amountOfMovies)
+//     .then(function(response){
+//     return response.json()
+//     })
+//     .then(function(data){  
+       
+//        console.log(data) // fetch(movieBaseUrl + '/search/id'+  movieKeyParam + '&simkl=' + data.simkl_id + '&extended=title,overview,genres')
+//         // .then(function(idResponse){
+//         //     return idResponse.json()
+//         //     })
+//         // .then(function(idData){
+//         //         console.log(idData)
+//         // })
+//     })
+//     for (let i = 0; i < amountOfMovies; i++) {
+        
+        
+//     }
+// }
 
 
