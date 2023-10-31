@@ -1,5 +1,6 @@
 const movieBaseUrl = 'https://api.simkl.com';
 let movieKeyParam = '?client_id=' + movieApiKey;
+let amountOfMovies = 10;
 
 //Gets trending movies for this week
 function getTrendingMovies(){
