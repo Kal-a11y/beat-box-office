@@ -21,9 +21,27 @@ function getTrendingMovies(){
             }
             movieList.push(movie)
         } 
+        showMovieData(movieList)
+
     })
 }
 
+function showMovieData(movieList){
+    for (let i = 0; i < amountOfMovies; i++) {
+        //Establish element locations
+        const currentCardIdName = '#movie' + (i + 1);
+        const currentCard = $(currentCardIdName).children();
+        const moviePoster = currentCard.children().eq(0);
+        const movieTitle = currentCard.eq(1);
+        const movieOverview = currentCard.eq(2);
+        
+        //Show data to screen
+        moviePoster.attr('src', movieList[i].posterUrl);
+        movieTitle.text( movieList[i].title);
+        movieOverview.text( movieList[i].overview);
+
+    }
+}
 //Uncompleted
 // function getMoviesByGenre(genre){
     
