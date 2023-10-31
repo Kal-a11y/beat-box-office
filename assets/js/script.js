@@ -2,6 +2,14 @@ const movieBaseUrl = 'https://api.simkl.com';
 let movieKeyParam = '?client_id=' + movieApiKey;
 let amountOfMovies = 5;
 
+init(); 
+
+//Initializes when page is opened.
+function init(){
+    //put function to call games here
+    getTrendingMovies();
+}
+
 //Gets trending movies for this week
 function getTrendingMovies(){
     let trendingPath = '/movies/trending/'
