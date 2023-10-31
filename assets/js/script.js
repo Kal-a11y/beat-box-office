@@ -41,7 +41,11 @@ function showMovieData(movieList){
 
     }
 }
-//Uncompleted
+
+
+
+
+//Uncompleted code to be used later
 // function getMoviesByGenre(genre){
     
 //     let amountOfMovies = 10;
