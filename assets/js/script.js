@@ -1,4 +1,4 @@
-let movieBaseUrl = 'https://api.simkl.com';
+const movieBaseUrl = 'https://api.simkl.com';
 let movieKeyParam = '?client_id=' + movieApiKey;
 
 //Gets trending movies for this week
