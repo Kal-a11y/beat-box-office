@@ -1,12 +1,11 @@
 const movieBaseUrl = 'https://api.simkl.com';
 let movieKeyParam = '?client_id=' + movieApiKey;
-let amountOfMovies = 10;
+let amountOfMovies = 5;
 
 //Gets trending movies for this week
 function getTrendingMovies(){
     let trendingPath = '/movies/trending/'
     let trendingParams = '&interval=week&extended=title,overview'
-    let amountOfMovies = 10;
     fetch(movieBaseUrl + trendingPath + movieKeyParam + trendingParams)
     .then(function(response){
         return response.json()
