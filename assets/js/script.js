@@ -1,6 +1,7 @@
 const movieBaseUrl = 'https://api.simkl.com';
 let movieKeyParam = '?client_id=' + movieApiKey;
 let amountOfMovies = 5;
+let mediaList = []
 
 init(); 
 $('.not-favorite-btn').on('click',favoriteMedia)
