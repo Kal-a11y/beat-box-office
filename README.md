@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a simple web app to help find a movie to watch or a game to play. Just click one of the genres and the app will generate a list of movies or games.
+This is a simple web app to help find a movie to watch or a game to play. Just click one of the movie genres or game categories and the app will generate a list of movies or games.
 
 ## Table of Contents
 
