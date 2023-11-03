@@ -13,7 +13,7 @@ This is a simple web app to help find a movie to watch or a game to play. Just c
 
 ## Installation
 
-
+Only Google Chrome or any other browswer that support HTML/JAVASCRIPT will support this app. Nothing else needs to be installed.
 
 ## License
 
