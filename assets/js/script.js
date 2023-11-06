@@ -95,16 +95,17 @@ function showFavoriteData(){
     }
 
         
-}
-function favoriteMedia(){
-    //Get media card
-    media = $(this).parent();
-    //Save data from this card
-    let item = {
-        poster :media.children().eq(0).children().attr('src'),
-        title : media.children().eq(1).text(),
-        overview : media.children().eq(2).text()
+//Displays Movies At Load
+function displayMovies(){
+    const movieStorage = JSON.parse(localStorage.getItem('Movies'))
+    if (movieStorage !== null){
+        for (const movie of movieStorage) {
+            createMovieCard(movie)
+        }
+    }else{
+        movieCardContainer.text('Search To Add Movies')
     }
+}
 
 //Checks If Item Already Exists
 function movieIsDuplicate(title){
