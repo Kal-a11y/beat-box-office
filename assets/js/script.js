@@ -106,17 +106,15 @@ function favoriteMedia(){
         overview : media.children().eq(2).text()
     }
 
-    $(this).removeClass('not-favorite-btn');
-    $(this).addClass('favorite-btn');
-    $(this).text('❤️ Favorite')
-    
-    if (mediaList !== null){
-        for (let i = 0; i < mediaList.length; i++) {
-            if(mediaList[i].title === item.title){
-                return
-            } 
+//Checks If Item Already Exists
+function movieIsDuplicate(title){
+    const movieStorage = JSON.parse(localStorage.getItem('Movies'))
+    for (const movie of movieStorage) {
+        if (movie.title === title){
+            return true
         }
     }
+}
     mediaList.push(item)
     localStorage.setItem('Favorites',JSON.stringify(mediaList))
     showFavoriteData();
