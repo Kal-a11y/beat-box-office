@@ -21,26 +21,43 @@ function init(){
     showFavoriteData();
 }
 
-//Gets trending movies for this week
-function getTrendingMovies(){
-    let trendingPath = '/movies/trending/'
-    let trendingParams = '&interval=week&extended=title,overview'
-    fetch(movieBaseUrl + trendingPath + movieKeyParam + trendingParams)
+//Get Movie From Search Value
+function searchMovie(){
+    //Set Base For Fetch URl
+    const searchValue = searchBar.val().replace(/ /g, "%20");
+    const searchPath = '/search/movie'
+    const searchParams = '&extended=full&limit=1&q=' + searchValue
+    
+    //Get Searched Movie
+    fetch(movieBaseUrl + searchPath + movieKeyParam + searchParams)
     .then(function(response){
         return response.json()
     })
     .then(function(data){
-        let movieList = []
-        for (let i = 0; i < amountOfMovies; i++){
-            let  movie = {
-                title : data[i].title,
-                overview : data[i].overview,
-                posterUrl : `https://wsrv.nl/?url=https://simkl.in/posters/${data[i].poster}_w.webp`,
-            }
-            movieList.push(movie)
-        } 
-        showMovieData(movieList)
+        //Store Data
+        let  movie = {
+            title : data[0].title,
+            overview : data[0].ratings.imdb.rating,
+            posterUrl : `https://wsrv.nl/?url=https://simkl.in/posters/${data[0].poster}_w.webp`,
+        }
 
+        let movieStorage = JSON.parse(localStorage.getItem('Movies'))
+
+        //If Movie Is Not Duplicate, Make Card
+        if(!movieIsDuplicate(movie.title)){
+            createMovieCard(movie)
+        }else{
+            alert('NO')
+        }
+
+        //Put Movie In Local Storage
+        if (movieStorage !== null){
+            movieStorage.push(movie)
+            localStorage.setItem('Movies',JSON.stringify(movieStorage))
+        }else{
+            movieList.push(movie)
+            localStorage.setItem('Movies',JSON.stringify(movieList))
+        } 
     })
 }
 
