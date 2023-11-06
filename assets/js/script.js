@@ -6,10 +6,15 @@ const movieKeyParam = '?client_id=' + movieApiKey;
 const searchBar = $('#movie-search-bar')
 const searchButton = $('#movie-search-btn')
 const movieCardContainer = $('#movie-cards')
+const movieModal = $('#movie-search-modal')
+const movieModalBtn = $('#movie-search-modal-btn')
 
 //Global Variables
 let movieList = []
 searchButton.on('click',searchMovie)
+movieModalBtn.on('click',function(){
+    movieModal.addClass('hidden')
+})
 
 init(); 
 
