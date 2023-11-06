@@ -22,42 +22,47 @@ function init(){
 
 //Get Movie From Search Value
 function searchMovie(){
-    //Set Base For Fetch URl
-    const searchValue = searchBar.val().replace(/ /g, "%20");
-    const searchPath = '/search/movie'
-    const searchParams = '&extended=full&limit=1&q=' + searchValue
-    
-    //Get Searched Movie
-    fetch(movieBaseUrl + searchPath + movieKeyParam + searchParams)
-    .then(function(response){
-        return response.json()
-    })
-    .then(function(data){
-        //Store Data
-        let  movie = {
-            title : data[0].title,
-            overview : data[0].ratings.imdb.rating,
-            posterUrl : `https://wsrv.nl/?url=https://simkl.in/posters/${data[0].poster}_w.webp`,
-        }
+    if (searchBar.val() === ''){
+        movieModal.removeClass('hidden')
+    }else{
+        //Set Base For Fetch URl
+        const searchValue = searchBar.val().replace(/ /g, "%20");
+        const searchPath = '/search/movie'
+        const searchParams = '&extended=full&limit=1&q=' + searchValue
+        
+        //Get Searched Movie
+        fetch(movieBaseUrl + searchPath + movieKeyParam + searchParams)
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(data){
+            //Store Data
+            let  movie = {
+                title : data[0].title,
+                overview : data[0].ratings.imdb.rating,
+                posterUrl : `https://wsrv.nl/?url=https://simkl.in/posters/${data[0].poster}_w.webp`,
+            }
 
-        let movieStorage = JSON.parse(localStorage.getItem('Movies'))
+            let movieStorage = JSON.parse(localStorage.getItem('Movies'))
 
-        //If Movie Is Not Duplicate, Make Card
-        if(!movieIsDuplicate(movie.title)){
-            createMovieCard(movie)
-        }else{
-            alert('NO')
-        }
+            //If Movie Is Not Duplicate, Make Card
+            if(!movieIsDuplicate(movie.title)){
+                createMovieCard(movie)
+            }else{
+                alert('NO')
+            }
 
-        //Put Movie In Local Storage
-        if (movieStorage !== null){
-            movieStorage.push(movie)
-            localStorage.setItem('Movies',JSON.stringify(movieStorage))
-        }else{
-            movieList.push(movie)
-            localStorage.setItem('Movies',JSON.stringify(movieList))
-        } 
-    })
+            //Put Movie In Local Storage
+            if (movieStorage !== null){
+                movieStorage.push(movie)
+                localStorage.setItem('Movies',JSON.stringify(movieStorage))
+            }else{
+                movieList.push(movie)
+                localStorage.setItem('Movies',JSON.stringify(movieList))
+            } 
+            searchBar.val('')
+        })
+    }   
 }
 
 //Shows Completed Movie Cards On Screen
