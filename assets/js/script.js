@@ -105,9 +105,11 @@ function displayMovies(){
 //Checks If Item Already Exists
 function movieIsDuplicate(title){
     const movieStorage = JSON.parse(localStorage.getItem('Movies'))
-    for (const movie of movieStorage) {
-        if (movie.title === title){
-            return true
+    if (movieStorage !== null){
+        for (const movie of movieStorage) {
+            if (movie.title === title){
+                return true
+            }
         }
     }
 }
