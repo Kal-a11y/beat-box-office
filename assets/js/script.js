@@ -12,13 +12,12 @@ let movieList = []
 searchButton.on('click',searchMovie)
 
 init(); 
-$('.not-favorite-btn').on('click',favoriteMedia)
+
 
 //Initializes when page is opened.
 function init(){
     //put function to call games here
-    getTrendingMovies();
-    showFavoriteData();
+    displayMovies()
 }
 
 //Get Movie From Search Value
@@ -78,23 +77,7 @@ function createMovieCard(item){
         movieCardContainer.append(newCard)
 }
 
-function showFavoriteData(){
-    let media = JSON.parse(localStorage.getItem('Favorites'))
-    let favoriteContainer = $('#favorite-cards')
-    favoriteContainer.empty()
-    if (media !== null){
-        mediaList = media;
-        for (let i = 0; i < mediaList.length; i++) {
-            //Create card with info
-            let newCard = $(`<div class="group relative"><div  class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">  <img src="${media[i].poster}"    alt="Collection of four insulated travel bottles on wooden shelf."    class="h-full w-full object-cover object-center"></div><h3 class="mt-6 text-sm text-gray-500">${media[i].title}</h3><p class="text-base font-semibold text-gray-900">${media[i].overview}</p><button class="favorite-btn">❤️ Favorite</button></div>`)
-            
-            //Add card to favorite containter
-            favoriteContainer.append(newCard)
-        }
 
-    }
-
-        
 //Displays Movies At Load
 function displayMovies(){
     const movieStorage = JSON.parse(localStorage.getItem('Movies'))
@@ -116,10 +99,127 @@ function movieIsDuplicate(title){
         }
     }
 }
-    mediaList.push(item)
-    localStorage.setItem('Favorites',JSON.stringify(mediaList))
-    showFavoriteData();
-}
+
+
+
+
+
+
+
+
+
+// function showFavoriteData(){
+//     //Get favorites list from storage
+//     let media = JSON.parse(localStorage.getItem('Favorites'))
+    
+//     //Set favorite card container
+//     let favoriteContainer = $('#favorite-cards')
+//     favoriteContainer.empty()
+//     console.log(media)
+   
+//     if (media !== null){
+//         mediaList = media;
+//         for (const media of mediaList) {
+//             //Create card with info
+//             const newCard = $(`
+//                 <div class="group relative">
+//                     <div  class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+//                         <img src="${media.poster}" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+//                     </div>
+//                     <h3 class="mt-6 text-sm text-gray-500">${media.title}</h3>
+//                     <p class="text-base font-semibold text-gray-900">${media.overview}</p>
+//                     <button class="icon-btn favorite-btn">❤️ Favorite</button>
+//                 </div>
+//             `)
+            
+//             //Add card to favorite containter
+//             favoriteContainer.append(newCard)
+//         }
+
+//     }
+        
+// }
+// function toggleFavorite(){
+    
+//     //Get media card and button
+//     const favoriteBtn = $(this)
+//     const media = favoriteBtn.parent();
+    
+//     //Save data from this card
+//     let item = {
+//         poster :media.children().eq(0).children().attr('src'),
+//         title : media.children().eq(1).text(),
+//         overview : media.children().eq(2).text()
+//     }
+
+//     //Get all buttons
+    
+    
+//     //For each button...
+//     for (const btn of iconBtns){
+//         const iconBtn = $(btn)
+        
+//         //If the currently pressed button matches any other buttons on screen...
+//         if (iconBtn.parent().children().eq(1).text() === media.children().eq(1).text()){
+//             //Toggle the class of the pressed button and all matches
+//             favoriteBtn.toggleClass('favorite-btn');
+//             iconBtn.toggleClass('favorite-btn');
+            
+//             //Change text depending of if class exists or not
+//             if (favoriteBtn.hasClass('favorite-btn')){
+//                 favoriteBtn.text('❤️ Favorite')
+//                 iconBtn.text('❤️ Favorite')
+//             }else{  
+//                 favoriteBtn.text('🤍 Add to favorites')
+//                 iconBtn.text('🤍 Add to favorites')
+//             }
+//         }else{ //If the currently pressed button does not have matches
+//             iconBtn.toggleClass('favorite-btn')
+//         }
+//     }
+
+//     if (favoriteBtn.hasClass('favorite-btn')){
+//         console.log('yes')
+//         //Add to favorites list
+//         let favoriteList = JSON.parse(localStorage.getItem('Favorites'))
+//         if (favoriteList === null){
+//             localStorage.setItem('Favorites',item)
+//         }else{
+//             favoriteList.push(item)
+//             localStorage.setItem('Favorites',item)
+//         }
+//         showFavoriteData()
+    
+        
+//     }
+    // //Remove item from local storage if its in favorite cards and does not have favorite-btn
+    // if (media.parent().attr('id') === $('#favorite-cards').attr('id') && !favoriteBtn.hasClass('favorite-btn')){
+    //     const favoriteList = JSON.parse(localStorage.getItem('Favorites'))
+    //     for (const favoriteItem of favoriteList) {
+    //         if(favoriteItem.title === item.title){
+    //             console.log(favoriteList,'start')
+    //             const favoriteItemIndex = favoriteList.indexOf(favoriteItem)
+    //             favoriteList.splice(favoriteItemIndex,1)
+    //             console.log(favoriteList,'end')
+    //             localStorage.setItem('Favorites',JSON.stringify(favoriteList))
+    //         }
+    //     }
+    // }else{
+    //     if (mediaList !== null){
+    //         for (let i = 0; i < mediaList.length; i++) {
+    //             if(mediaList[i].title === item.title){
+    //                 return
+    //             } 
+    //         }
+    //     }
+    //     mediaList.push(item)
+    //     localStorage.setItem('Favorites',JSON.stringify(mediaList))
+
+    // }
+    
+    
+    // showFavoriteData();
+// }
 
 //Uncompleted code to be used later
 // function getMoviesByGenre(genre){
