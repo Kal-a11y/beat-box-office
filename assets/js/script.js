@@ -61,21 +61,21 @@ function searchMovie(){
     })
 }
 
-function showMovieData(movieList){
-    for (let i = 0; i < amountOfMovies; i++) {
-        //Establish element locations
-        const currentCardIdName = '#movie' + (i + 1);
-        const currentCard = $(currentCardIdName).children();
-        const moviePoster = currentCard.children().eq(0);
-        const movieTitle = currentCard.eq(1);
-        const movieOverview = currentCard.eq(2);
-        
-        //Show data to screen
-        moviePoster.attr('src', movieList[i].posterUrl);
-        movieTitle.text( movieList[i].title);
-        movieOverview.text( movieList[i].overview);
+//Shows Completed Movie Cards On Screen
+function createMovieCard(item){
+    //Create a new card with data
+    const newCard = $(`
+            <div class="group relative">
+                <div  class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+                    <img src="${item.posterUrl}" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
+                </div>
+                <h3 class="mt-6 text-sm text-gray-500">IMDB Rating: ${item.overview}</h3>
+                <p class="text-base font-semibold text-gray-900">${item.title}</p>
 
-    }
+            </div>
+        `)
+        //Add Card To Container
+        movieCardContainer.append(newCard)
 }
 
 function showFavoriteData(){
