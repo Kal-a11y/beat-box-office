@@ -17,7 +17,7 @@ Only Google Chrome or any other browswer that support HTML/JAVASCRIPT will suppo
 
 ## Usage
 
-First, go to the deployed app. Located: https://kal-a11y.github.io/group-project-1/
+First, go to the deployed app. Located: https://kal-a11y.github.io/beat-box-office/
 
 ## Credits
 
