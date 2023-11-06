@@ -1,7 +1,15 @@
+//For Movie API Call
 const movieBaseUrl = 'https://api.simkl.com';
-let movieKeyParam = '?client_id=' + movieApiKey;
-let amountOfMovies = 5;
-let mediaList = []
+const movieKeyParam = '?client_id=' + movieApiKey;
+
+//Elements
+const searchBar = $('#movie-search-bar')
+const searchButton = $('#movie-search-btn')
+const movieCardContainer = $('#movie-cards')
+
+//Global Variables
+let movieList = []
+searchButton.on('click',searchMovie)
 
 init(); 
 $('.not-favorite-btn').on('click',favoriteMedia)
@@ -61,7 +69,7 @@ function showFavoriteData(){
         mediaList = media;
         for (let i = 0; i < mediaList.length; i++) {
             //Create card with info
-            let newCard = $(`<div class="group relative"><div  class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">  <img src="${media[i].poster}"    alt="Collection of four insulated travel bottles on wooden shelf."    class="h-full w-full object-cover object-center"></div><h3 class="mt-6 text-sm text-gray-500">  <a href="#">    <span class="absolute inset-0"></span>${media[i].title}</a> </h3><p class="text-base font-semibold text-gray-900">${media[i].overview}</p><button class="favorite-btn">❤️ Favorite</button></div>`)
+            let newCard = $(`<div class="group relative"><div  class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">  <img src="${media[i].poster}"    alt="Collection of four insulated travel bottles on wooden shelf."    class="h-full w-full object-cover object-center"></div><h3 class="mt-6 text-sm text-gray-500">${media[i].title}</h3><p class="text-base font-semibold text-gray-900">${media[i].overview}</p><button class="favorite-btn">❤️ Favorite</button></div>`)
             
             //Add card to favorite containter
             favoriteContainer.append(newCard)
