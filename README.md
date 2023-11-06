@@ -19,7 +19,12 @@ Only Google Chrome or any other browswer that support HTML/JAVASCRIPT will suppo
 
 First, go to the deployed app. Located: https://kal-a11y.github.io/group-project-1/
 
+## Credits
 
+Kaila Anderson https://github.com/Kal-a11y
+Ricardo Torres https://github.com/rtocastro
+Francisco Contreras https://github.com/frankieee324
+Eli Corning https://github.com/Elkion223
 
 ## License
 
