@@ -53,18 +53,20 @@ function searchMovie(){
             //If Movie Is Not Duplicate, Make Card
             if(!movieIsDuplicate(movie.title)){
                 createMovieCard(movie)
+                //Put Movie In Local Storage
+                if (movieStorage !== null){
+                    movieStorage.push(movie)
+                    localStorage.setItem('Movies',JSON.stringify(movieStorage))
+                }else{
+                    movieList.push(movie)
+                    localStorage.setItem('Movies',JSON.stringify(movieList))
+                } 
             }else{
-                alert('NO')
+                $('#movie-modal-title').text('Duplicate Value')
+                $('#movie-modal-text').text('This movie is already in your list')
+                movieModal.removeClass('hidden')
             }
 
-            //Put Movie In Local Storage
-            if (movieStorage !== null){
-                movieStorage.push(movie)
-                localStorage.setItem('Movies',JSON.stringify(movieStorage))
-            }else{
-                movieList.push(movie)
-                localStorage.setItem('Movies',JSON.stringify(movieList))
-            } 
             searchBar.val('')
         })
     }   
