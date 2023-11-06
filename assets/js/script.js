@@ -97,8 +97,6 @@ function displayMovies(){
         for (const movie of movieStorage) {
             createMovieCard(movie)
         }
-    }else{
-        movieCardContainer.text('Search To Add Movies')
     }
 }
 
