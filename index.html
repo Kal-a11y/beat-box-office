@@ -4,19 +4,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beat Box Office</title>
+  <title>→BEAT BOX OFFICE←</title>
   <link rel="stylesheet" href="./assets/css/style.css">
 
 </head>
 
 <body>
+  <div id="modal1" class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <!--
+      Background backdrop, show/hide based on modal state.
+  
+      Entering: "ease-out duration-300"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+      <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+        <!--
+          Modal panel, show/hide based on modal state.
+  
+          Entering: "ease-out duration-300"
+            From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            To: "opacity-100 translate-y-0 sm:scale-100"
+          Leaving: "ease-in duration-200"
+            From: "opacity-100 translate-y-0 sm:scale-100"
+            To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        -->
+        <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+          <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+            <div class="sm:flex sm:items-start">
+              <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                <svg class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                </svg>
+              </div>
+              <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">ARE YOU READY TO BE ENTERTAINED?!?!</h3>
+                <div class="mt-2">
+                  <p class="text-sm text-gray-500">please make a selection.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+            <button id="modalbutton" type="button" class="inline-flex w-full justify-center rounded-md bg-purple-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 sm:ml-3 sm:w-auto">YES!!!</button>
+            <button  id="modalbutton1" type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">yes, but in gray </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="bg-white">
     <header class="absolute inset-x-0 top-0 z-50">
       <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div class="flex lg:flex-1">
+           <!--ADDED NEW LOGO-->
           <a href="#" class="-m-1.5 p-1.5">
             <span class="sr-only">Your Company</span>
-            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+            <img class="h-8 w-auto" src="assets/NEWPROJECTLOGO.png" alt="">
           </a>
         </div>
         <div class="flex lg:hidden">
@@ -29,8 +79,8 @@
           </button>
         </div>
         <div class="lg:flex lg:gap-x-12">
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Music</a>
+          <a href="#moviestag" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
+          <a href="#gamestag" class="text-sm font-semibold leading-6 text-gray-900">Music</a>
 
         </div>
 
@@ -89,8 +139,8 @@
     </div>
   </section>
 
-  <!--This is the games section-->
-  <section class="musicsection">
+  <!--This is the music section-->
+  <section class="musicsection"  id="gamestag">
     <div class="bg-gray-100">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
@@ -117,7 +167,7 @@
   </section>
 
   <!-- This is the movies section-->
-  <section class="moviesection">
+  <section class="moviesection" id="moviestag">
     <div class="bg-gray-100">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
