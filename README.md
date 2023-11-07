@@ -16,6 +16,8 @@ BeatBoxOffice is designed to alleviate the user's decision-making process by off
 ## Installation
 
 Only Google Chrome or any other browswer that support HTML/JAVASCRIPT will support this app. Nothing else needs to be installed.
+Link to get api key for movies: [https://simkl.com/settings/developer/new/]
+Link to get api key for music: [https://rapidapi.com/Glavier/api/spotify23/]
 
 ## Usage
 
