@@ -10,6 +10,7 @@ BeatBoxOffice is designed to alleviate the user's decision-making process by off
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
+- [Deployment/Repository](#Deployment-Repository)
 
 ## Installation
 
@@ -67,3 +68,8 @@ SOFTWARE.
 
 ---
 
+## Deployment-Repository
+
+Deployment page: https://kal-a11y.github.io/beat-box-office/
+
+Repository: https://github.com/Kal-a11y/beat-box-office
