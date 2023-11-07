@@ -142,7 +142,7 @@ function searchMovie(){
 
             //If Music Is Not Duplicate, Make Card
             if(!movieIsDuplicate(movie.title)){
-                createMovieCard(movie)
+                createMusicCard(movie)
                 //Put Music In Local Storage
                 if (movieStorage !== null){
                     movieStorage.push(movie)
@@ -163,7 +163,7 @@ function searchMovie(){
 }
 
 //Shows Completed Music Cards On Screen
-function createMovieCard(item){
+function createMusicCard(item){
     //Create a new card with data
     const newCard = $(`
             <div class="group relative">
@@ -185,7 +185,7 @@ function displayMovies(){
     const movieStorage = JSON.parse(localStorage.getItem('Movies'))
     if (movieStorage !== null){
         for (const movie of movieStorage) {
-            createMovieCard(movie)
+            createMusicCard(movie)
         }
     }
 }
