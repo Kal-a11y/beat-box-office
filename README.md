@@ -4,7 +4,8 @@
 
 BeatBoxOffice is designed to alleviate the user's decision-making process by offering curated popular choices. Whether it pertains to music or movies, we present you with current trends, allowing you to easily select your preferred option. The underlying motivation is to ensure that users remain engaged and entertained by the trending selections we offer.
 
-## Table of Contents (Optional)
+
+## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -14,29 +15,22 @@ BeatBoxOffice is designed to alleviate the user's decision-making process by off
 
 ## Installation
 
-For installation, you don't need anything other than a browser with HTML 5. 
+Only Google Chrome or any other browswer that support HTML/JAVASCRIPT will support this app. Nothing else needs to be installed.
 
 ## Usage
 
+First, go to the deployed app. Located: https://kal-a11y.github.io/beat-box-office/
 First off click the modal to get started. After that you'll be welcomed onto a page with info on popular movies and music. 
 
-    ```md
     ![Screenshot Welcome Page](/assets/PROJECTSCREENSHOT1.png)
     ![Screenshots Movies Page](/assets/PROJECTSCREENSHOT2.png)
-    ```
 
 ## Credits
 
-List your collaborators:
-
-Kaila: https://github.com/Kal-a11y (Administrative Developer)
-
-Ricardo: https://github.com/rtocastro (Framework Developer)
-
-Frank: https://github.com/frankieee324 (Javascript Developer)
-
-Eli: https://github.com/Elkion223 (Documentation)
-
+Kaila Anderson https://github.com/Kal-a11y
+Ricardo Torres https://github.com/rtocastro
+Francisco Contreras https://github.com/frankieee324
+Eli Corning https://github.com/Elkion223
 
 www.thenounproject.com  (for design/logo and icon assets)
 tailwind CSS (for an almost bootstrap like architecture)
@@ -46,7 +40,7 @@ chatGPT (for helping with naming of app)
 
 MIT License
 
-Copyright (c) 2023 Kal-a11y RToCastro Frankieee324 Elkion223
+Copyright (c) 2023 Kal-a11y, rtocastro, Elkion223, frankieee324
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -64,9 +58,8 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
 
----
+SOFTWARE.
 
 ## Deployment-Repository
 

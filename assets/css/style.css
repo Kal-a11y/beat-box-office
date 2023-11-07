@@ -1,0 +1,11 @@
+.not-favorite-btn{
+    background-color: white;
+    width: 90%;
+    margin: auto;
+    border-radius: 10px;
+    border: 1px solid #4f46e4;
+}
+.not-favorite-btn:hover{
+    background-color: #4f46e4;
+    color: white;
+}
