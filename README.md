@@ -21,7 +21,6 @@ Only Google Chrome or any other browswer that support HTML/JAVASCRIPT will suppo
 
 First, go to the deployed app. Located: https://kal-a11y.github.io/beat-box-office/
 First off click the modal to get started. After that you'll be welcomed onto a page with info on popular movies and music. 
-
     ![Screenshot Welcome Page](/assets/PROJECTSCREENSHOT1.png)
     ![Screenshots Movies Page](/assets/PROJECTSCREENSHOT2.png)
 
