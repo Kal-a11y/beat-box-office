@@ -1,1 +1,2 @@
 const movieApiKey = '33d0f2af2ed817120ec3943f73a7cec23b0e163bea43431303395d260a4fee1e';
+const musicApiKey = '0b9700a505msh43a8ab52968bbeep18341fjsn0dc3a212ea99';
