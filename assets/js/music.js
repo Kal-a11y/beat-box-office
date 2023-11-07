@@ -147,7 +147,7 @@ function searchMusic(){
 
             let musicStorage = JSON.parse(localStorage.getItem('Music'))
 
-            //If Movie Is Not Duplicate, Make Card
+            //If Music Is Not Duplicate, Make Card
             if(!musicIsDuplicate(song.title)){
                 createMusicCard(song)
                 //Put Movie In Local Storage
@@ -169,7 +169,8 @@ function searchMusic(){
     }   
 }
 
-//Shows Completed Movie Cards On Screen
+
+//Shows Completed Music Cards On Screen
 function createMusicCard(item){
     //Create a new card with data
     const newCard = $(`
@@ -186,13 +187,13 @@ function createMusicCard(item){
         musicCardContainer.append(newCard)
 }
 
-
-//Displays Movies At Load
+//Displays Music At Load
 function displayMusic(){
     const musicStorage = JSON.parse(localStorage.getItem('Music'))
     if (musicStorage !== null){
         for (const song of musicStorage) {
             createMusicCard(song)
+
         }
     }
 }
