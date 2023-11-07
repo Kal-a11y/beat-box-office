@@ -1,4 +1,5 @@
 *.ds_store
+keys.js
 
 # Logs
 logs
