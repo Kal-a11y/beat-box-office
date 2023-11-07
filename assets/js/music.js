@@ -132,12 +132,13 @@ function searchMusic(){
         const searchParams = '&extended=full&limit=1&q=' + searchValue
         
         //Get Searched Movie
-        fetch(musicBaseUrl + searchPath + searchParams + musicOptions)
+        fetch(musicBaseUrl + searchPath + searchParams, musicOptions)
         .then(function(response){
             return response.json()
         })
         .then(function(data){
             //Store Data
+            const dataLocation = data.tracks.items[0].data
             const song = {
                 title: dataLocation.name,
                 artist: dataLocation.artists.items[0].profile.name,
@@ -154,7 +155,7 @@ function searchMusic(){
                     musicStorage.push(song)
                     localStorage.setItem('Music',JSON.stringify(musicStorage))
                 }else{
-                    musicList.push(movie)
+                    musicList.push(song)
                     localStorage.setItem('Music',JSON.stringify(musicList))
                 } 
             }else{
