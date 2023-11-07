@@ -88,22 +88,28 @@
 // })();
 
 
-//For Music API Call
-const musicBaseUrl = 'https://api.simkl.com';
-const musicKeyParam = '?client_id=' + musicApiKey;
+//For Movie API Call
+const musicBaseUrl = 'https://spotify23.p.rapidapi.com/search/?q=%3CREQUIRED%3E&type=tracks&offset=0&limit=1';
+const musicOptions = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': musicApiKey,
+		'X-RapidAPI-Host': 'spotify23.p.rapidapi.com',
+	}
+}
 
 //Elements
-const searchBar = $('#movie-search-bar')
-const searchButton = $('#movie-search-btn')
-const movieCardContainer = $('#movie-cards')
-const movieModal = $('#movie-search-modal')
-const movieModalBtn = $('#movie-search-modal-btn')
+const musicSearchBar = $('#music-search-bar')
+const musicSearchButton = $('#music-search-btn')
+const musicCardContainer = $('#music-cards')
+const musicModal = $('#movie-search-modal')
+const musicModalBtn = $('#movie-search-modal-btn')
 
 //Global Variables
 let musicList = []
-searchButton.on('click',searchMovie)
-movieModalBtn.on('click',function(){
-    movieModal.addClass('hidden')
+musicSearchButton.on('click',searchMusic)
+musicModalBtn.on('click',function(){
+    musicModal.addClass('hidden')
 })
 
 init(); 
@@ -112,57 +118,57 @@ init();
 //Initializes when page is opened.
 function init(){
     //put function to call games here
-    displayMovies()
+    displayMusic()
 }
 
-//Get Music From Search Value
-function searchMovie(){
-    if (searchBar.val() === ''){
-        movieModal.removeClass('hidden')
+//Get Movie From Search Value
+function searchMusic(){
+    if (musicSearchBar.val() === ''){
+        musicModal.removeClass('hidden')
     }else{
         //Set Base For Fetch URl
-        const searchValue = searchBar.val().replace(/ /g, "%20");
+        const searchValue = musicSearchBar.val().replace(/ /g, "%20");
         const searchPath = '/search/movie'
         const searchParams = '&extended=full&limit=1&q=' + searchValue
         
-        //Get Searched music
-        fetch(movieBaseUrl + searchPath + movieKeyParam + searchParams)
+        //Get Searched Movie
+        fetch(musicBaseUrl + searchPath + searchParams + musicOptions)
         .then(function(response){
             return response.json()
         })
         .then(function(data){
             //Store Data
-            let  movie = {
-                title : data[0].title,
-                overview : data[0].ratings.imdb.rating,
-                posterUrl : `https://wsrv.nl/?url=https://simkl.in/posters/${data[0].poster}_w.webp`,
+            const song = {
+                title: dataLocation.name,
+                artist: dataLocation.artists.items[0].profile.name,
+                posterUrl: dataLocation.albumOfTrack.coverArt.sources[0].url
             }
 
-            let movieStorage = JSON.parse(localStorage.getItem('Movies'))
+            let musicStorage = JSON.parse(localStorage.getItem('Music'))
 
-            //If Music Is Not Duplicate, Make Card
-            if(!movieIsDuplicate(movie.title)){
-                createMusicCard(movie)
-                //Put Music In Local Storage
-                if (movieStorage !== null){
-                    movieStorage.push(movie)
-                    localStorage.setItem('Movies',JSON.stringify(movieStorage))
+            //If Movie Is Not Duplicate, Make Card
+            if(!musicIsDuplicate(song.title)){
+                createMusicCard(song)
+                //Put Movie In Local Storage
+                if (musicStorage !== null){
+                    musicStorage.push(song)
+                    localStorage.setItem('Music',JSON.stringify(musicStorage))
                 }else{
-                    movieList.push(movie)
-                    localStorage.setItem('Movies',JSON.stringify(movieList))
+                    musicList.push(movie)
+                    localStorage.setItem('Music',JSON.stringify(musicList))
                 } 
             }else{
                 $('#movie-modal-title').text('Duplicate Value')
-                $('#movie-modal-text').text('This movie is already in your list')
-                movieModal.removeClass('hidden')
+                $('#movie-modal-text').text('This song is already in your list')
+                musicModal.removeClass('hidden')
             }
 
-            searchBar.val('')
+            musicSearchBar.val('')
         })
     }   
 }
 
-//Shows Completed Music Cards On Screen
+//Shows Completed Movie Cards On Screen
 function createMusicCard(item){
     //Create a new card with data
     const newCard = $(`
@@ -170,32 +176,32 @@ function createMusicCard(item){
                 <div  class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
                     <img src="${item.posterUrl}" alt="Collection of four insulated travel bottles on wooden shelf." class="h-full w-full object-cover object-center">
                 </div>
-                <h3 class="mt-6 text-sm text-gray-500">IMDB Rating: ${item.overview}</h3>
+                <h3 class="mt-6 text-sm text-gray-500">IMDB Rating: ${item.artist}</h3>
                 <p class="text-base font-semibold text-gray-900">${item.title}</p>
 
             </div>
         `)
         //Add Card To Container
-        movieCardContainer.append(newCard)
+        musicCardContainer.append(newCard)
 }
 
 
-//Displays Music At Load
-function displayMovies(){
-    const movieStorage = JSON.parse(localStorage.getItem('Movies'))
-    if (movieStorage !== null){
-        for (const movie of movieStorage) {
-            createMusicCard(movie)
+//Displays Movies At Load
+function displayMusic(){
+    const musicStorage = JSON.parse(localStorage.getItem('Music'))
+    if (musicStorage !== null){
+        for (const song of musicStorage) {
+            createMusicCard(song)
         }
     }
 }
 
 //Checks If Item Already Exists
-function movieIsDuplicate(title){
-    const movieStorage = JSON.parse(localStorage.getItem('Movies'))
-    if (movieStorage !== null){
-        for (const movie of movieStorage) {
-            if (movie.title === title){
+function musicIsDuplicate(title){
+    const musicStorage = JSON.parse(localStorage.getItem('Music'))
+    if (musicStorage !== null){
+        for (const song of musicStorage) {
+            if (song.title === title){
                 return true
             }
         }
