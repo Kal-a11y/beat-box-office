@@ -1,8 +1,9 @@
-# group-project-1
+# Beat Box Office
 
 ## Description
 
-This is a simple web app to help find a movie to watch or a game to play. Just click one of the movie genres or game categories and the app will generate a list of movies or games.
+BeatBoxOffice is designed to alleviate the user's decision-making process by offering curated popular choices. Whether it pertains to music or movies, we present you with current trends, allowing you to easily select your preferred option. The underlying motivation is to ensure that users remain engaged and entertained by the trending selections we offer.
+
 
 ## Table of Contents
 
@@ -10,6 +11,7 @@ This is a simple web app to help find a movie to watch or a game to play. Just c
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
+- [Deployment/Repository](#Deployment-Repository)
 
 ## Installation
 
@@ -18,6 +20,10 @@ Only Google Chrome or any other browswer that support HTML/JAVASCRIPT will suppo
 ## Usage
 
 First, go to the deployed app. Located: https://kal-a11y.github.io/beat-box-office/
+First off click the modal to get started. After that you'll be welcomed onto a page with info on popular movies and music. 
+
+    ![Screenshot Welcome Page](/assets/PROJECTSCREENSHOT1.png)
+    ![Screenshots Movies Page](/assets/PROJECTSCREENSHOT2.png)
 
 ## Credits
 
@@ -25,6 +31,10 @@ Kaila Anderson https://github.com/Kal-a11y
 Ricardo Torres https://github.com/rtocastro
 Francisco Contreras https://github.com/frankieee324
 Eli Corning https://github.com/Elkion223
+
+www.thenounproject.com  (for design/logo and icon assets)
+tailwind CSS (for an almost bootstrap like architecture)
+chatGPT (for helping with naming of app)
 
 ## License
 
@@ -48,4 +58,11 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+
 SOFTWARE.
+
+## Deployment-Repository
+
+Deployment page: https://kal-a11y.github.io/beat-box-office/
+
+Repository: https://github.com/Kal-a11y/beat-box-office
